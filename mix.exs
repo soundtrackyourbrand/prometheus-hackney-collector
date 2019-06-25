@@ -23,7 +23,8 @@ defmodule PrometheusHackneyCollector.MixProject do
   def package do
     [
       name: "prometheus_hackney_collector",
-      files: ~w(lib .formatter mix.exs README* LICENSE*),
+      description: "A small collector to collect Hackney pool metrics.",
+      files: ~w(lib .formatter.exs mix.exs README*),
       licenses: ["MIT"],
       links: %{
         "GitHub" => "https://github.com/soundtrackyourbrand/prometheus-hackney-collector"
