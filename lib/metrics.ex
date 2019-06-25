@@ -72,7 +72,7 @@ defmodule PrometheusHackneyCollector.Metrics do
   end
 
 
-  def increment_counter([:hackney, host, metric] = parts) when is_list(host) do
+  def increment_counter([:hackney, host, metric]) when is_list(host) do
     Gauge.inc(name: to_name([:hackney, metric]), labels: [host])
     :ok
   end
@@ -94,7 +94,7 @@ defmodule PrometheusHackneyCollector.Metrics do
     :ok
   end
 
-  def decrement_counter([:hackney, host, metric] = parts) when is_list(host) do
+  def decrement_counter([:hackney, host, metric]) when is_list(host) do
     Gauge.dec(name: to_name([:hackney, metric]), labels: [host])
     :ok
   end
@@ -111,7 +111,7 @@ defmodule PrometheusHackneyCollector.Metrics do
     :ok
   end
 
-  def update_histogram([:hackney, host, metric] = parts, v) when is_list(host) do
+  def update_histogram([:hackney, host, metric], v) when is_list(host) do
     Histogram.observe([name: to_name([:hackney, metric, :duration_milliseconds]), labels: [host]], v)
     :ok
   end
