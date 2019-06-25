@@ -28,6 +28,7 @@ defmodule PrometheusHackneyCollector.MixProject do
       links: %{
         "GitHub" => "https://github.com/soundtrackyourbrand/prometheus-hackney-collector"
       }
+    ]
   end
 
   # Run "mix help deps" to learn about dependencies.
