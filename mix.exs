@@ -36,7 +36,8 @@ defmodule PrometheusHackneyCollector.MixProject do
   defp deps do
     [
       {:hackney, "~> 1.15"},
-      {:prometheus_ex, "~> 3.0"}
+      {:prometheus_ex, "~> 3.0"},
+      {:ex_doc, ">= 0.0.0", only: :dev, runtime: false}
     ]
   end
 end
