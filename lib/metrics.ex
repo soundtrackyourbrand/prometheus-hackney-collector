@@ -29,7 +29,7 @@ defmodule PrometheusHackneyCollector.Metrics do
         help: Atom.to_string(name),
         labels: [:host],
         duration_unit: false,
-        buckets: [.005, .01, .025, .05, .1, .25, .5, 1, 2.5, 5, 10, 30]
+        buckets: [0.005, 0.01, 0.025, 0.05, 0.1, 0.25, 0.5, 1, 2.5, 5, 10, 30]
       )
     end
   end
