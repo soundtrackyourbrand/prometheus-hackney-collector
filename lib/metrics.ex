@@ -23,7 +23,7 @@ defmodule PrometheusHackneyCollector.Metrics do
     end
 
     for histogram <- [:request_time, :connect_time, :response_time] do
-      name = to_name([:hackney, histogram, :duration_milliseconds])
+      name = to_name([:hackney, histogram, :duration_seconds])
       Histogram.declare(
         name: name,
         help: Atom.to_string(name),
@@ -112,7 +112,7 @@ defmodule PrometheusHackneyCollector.Metrics do
   end
 
   def update_histogram([:hackney, host, metric], v) when is_list(host) do
-    Histogram.observe([name: to_name([:hackney, metric, :duration_milliseconds]), labels: [host]], v)
+    Histogram.observe([name: to_name([:hackney, metric, :duration_seconds]), labels: [host]], v / 1000)
     :ok
   end
 
