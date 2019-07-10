@@ -47,6 +47,6 @@ defmodule PrometheusHackneyCollector do
   end
 
   defp to_name(metric) do
-    [:hackney_pool, metric, :count] |> Enum.join("_") |> String.to_atom()
+    [:hackney_pool, metric] |> Enum.join("_") |> String.to_atom()
   end
 end
