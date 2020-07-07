@@ -18,8 +18,11 @@ defmodule PrometheusHackneyCollector.Metrics do
     end
 
     for counter <- [:connect_timeout, :connect_error] do
-      name = to_name([:hackney, counter, :total])
-      Counter.declare(name: name, help: Atom.to_string(name), labels: [:host])
+      total_name = to_name([:hackney, counter, :total])
+      name = to_name([:hackney, counter])
+
+      Counter.declare(name: total_name, help: Atom.to_string(total_name), labels: [:host])
+      Gauge.declare(name: name, help: Atom.to_string(name), labels: [:host])
     end
 
     for histogram <- [:request_time, :connect_time, :response_time] do
